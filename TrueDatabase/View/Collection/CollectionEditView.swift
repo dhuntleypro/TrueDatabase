@@ -96,65 +96,7 @@ struct CollectionEditView : View {
                         
                         guard let image = selectedUIImage else { return }
                         
-                        print("DEBUG: 1")
-                       
-                        guard let imageData = image.jpegData(compressionQuality: 0.3) else { return }
-                        
-                        print("DEBUG: 2")
-                        
-                        let filename = NSUUID().uuidString
-                        let storageRef = Storage.storage().reference().child(filename)
-                        
-                        storageRef.putData(imageData, metadata: nil) { _, error in
-                            if let error = error {
-                                print("DEBUG: Fail tp upload image \(error.localizedDescription)")
-                            }
-                            
-                            
-                            storageRef.downloadURL { url, _ in
-                                guard let image = url?.absoluteString else { return }
-                                
-                       
-                       
-                                let currentCollectionRef = Firestore.firestore().collection("collections").document()
-                       
-                                  //     let collectionID = currentCollectionRef.documentID
-                       
-                              //   correct set values... (fix)
-                                let data: [String: Any] = [ "author" : viewModel.collection.author,
-                                                          //  "image" : viewModel.collection.image,
-                                                            "image" : image,
-                                                            "pages" : viewModel.collection.numberofPages,
-                                                            "title" : viewModel.collection.title,
-                                                            
-                                   ]
-
-                                   // Add collection to All Collections
-                                   currentCollectionRef.setData(data)
-                            //    currentCollectionRef.updateData(["image" : "test"])
-                               
-                                
-                                
-                       
-                               // viewModel.collection.image = image
-                                print("DEBUG: 3")
-                            //    handleDoneTapped(image: image)
-
-                            }
-                        
-                    
-                    }
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        //    viewModel.createCollection(pickImageURL: image)
-                        
-                        
-                        
+                        viewModel.addCollectionToFirebase(selectedImage: image)
                         
                     }) {
                         Text("Done")

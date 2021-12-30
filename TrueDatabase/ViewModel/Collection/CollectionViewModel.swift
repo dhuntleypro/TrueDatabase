@@ -23,7 +23,7 @@ class CollectionViewModel: ObservableObject{
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(collection: Collection = Collection(id: "123" , title: "", author: "", numberofPages: 0 , image: "")) {
+    init(collection: Collection = Collection(id: "123" , title: "", author: "", numberofPages: 0 , image: "", images: [""])) {
         self.collection = collection
         
         self.$collection
@@ -33,8 +33,13 @@ class CollectionViewModel: ObservableObject{
             }
             .store(in: &cancellables)
     }
+    
+    
+// MARK: - did not use...
+    
+    
     // Add a new Collection
-    func addCollection(collection: Collection , image : String) {
+    func addCollection1(collection: Collection , image : String) {
         do {
             let _ = try  db
                 .collection("collections")
@@ -44,48 +49,57 @@ class CollectionViewModel: ObservableObject{
             db
                 .collection("collections").document(collection.id!)
             .updateData(["image" : "test"])
-            
-//            { _ in
-//                collectionWantRef.document(uid).setData([:]) { _ in
-//                    userWantRef.document(self.collection.id).setData([:]) { _ in
-//                        self.didWant = true
-//                    }
-//                }
-//            }
-            
-            
-            
-              //  .append("image").
-           //     .replacingOccurrences(of: "image", with: ["":""])
-//        //        .append(collection: collection, image: image)
-//      //          .addDocument(from: collection)
-                
+
         }
         catch {
             print(error)
         }
-//
-//        do {
-//            let _ = try  db
-//                .collection("collections")
-//                .document(collection.id!)
-//                .append(data: ["image" : "Any"])
-//
-//        }
-//        catch {
-//            print(error)
-//        }
+
     }
     
     // Save edits to firebase
-    func save(image: String) {
-        addCollection(collection: collection, image: image)
+    func save1(image: String) {
+        addCollection1(collection: collection, image: image)
+    }
+    
+    
+  
+     func updateCollection(_ collection: Collection) {
+        if let documentId = collection.id {
+            do {
+                try db.collection("collections").document(documentId).setData(from: collection)
+            }
+            catch {
+                print(error)
+            }
+        }
+    }
+    
+    // Save edits to firebase
+    func save() {
+        addCollection(collection: collection)
     }
     
     
     
     
+    func addCollection(collection: Collection) {
+        do {
+            let _ = try  db
+                .collection("collections")
+                .addDocument(from: collection)
+      
+        }
+        catch {
+            print(error)
+        }
+    }
+//
     
+    
+// MARK: - WORKING......
+
+    // upload collection with selected picker image
     func addCollectionToFirebase(selectedImage: UIImage) {
         
         
@@ -116,6 +130,7 @@ class CollectionViewModel: ObservableObject{
                 let data: [String: Any] = [ "author" : self.collection.author,
                                           //  "image" : viewModel.collection.image,
                                             "image" : selectedImage,
+                                            "images" :  self.collection.images,
                                             "pages" : self.collection.numberofPages,
                                             "title" : self.collection.title,
                                             

@@ -22,6 +22,7 @@ struct Collection: Identifiable , Codable {
     var author: String
     var numberofPages: Int
     var image: String
+    var images: [String]
     
     //  Account for different names between firebase and model
     enum CodingKeys : String , CodingKey {
@@ -29,6 +30,7 @@ struct Collection: Identifiable , Codable {
         case author
         case numberofPages = "pages"
         case image
+        case images
     }
 }
 

@@ -35,6 +35,6 @@ struct CollectionListCell: View {
 
 struct CollectionListCell_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionListCell(collection: Collection(id: "", title: "test title", author: "test author", numberofPages: 3, image: "plus_photo"))
+        CollectionListCell(collection: Collection(id: "", title: "test title", author: "test author", numberofPages: 3, image: "plus_photo", images: ["plus_photo" , "plus_photo"]))
     }
 }

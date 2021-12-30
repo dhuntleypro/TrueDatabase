@@ -21,7 +21,7 @@ struct CollectionListView: View {
     @State private var presentAddNewCollectionSreen = false
     var body: some View {
         List(viewModel.collections) { collection in
-            NavigationLink(destination: CollectionUpdateView()){
+            NavigationLink(destination: CollectionUpdateView(collection: collection)){
                 CollectionListCell(collection: collection)
             }
         }

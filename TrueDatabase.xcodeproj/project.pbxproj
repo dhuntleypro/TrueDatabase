@@ -31,6 +31,10 @@
 		309C9CA9277DD3CB00BBAC88 /* CollectionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C9CA8277DD3CB00BBAC88 /* CollectionEditView.swift */; };
 		30FD172B277DE47400EA2734 /* CollectionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD172A277DE47400EA2734 /* CollectionListCell.swift */; };
 		30FD172D277DE52400EA2734 /* CollectionUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD172C277DE52400EA2734 /* CollectionUpdateView.swift */; };
+		30FD172F277DE5D400EA2734 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD172E277DE5D300EA2734 /* CustomTextField.swift */; };
+		30FD1734277DEFEF00EA2734 /* Identifiable_UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1731277DEFEF00EA2734 /* Identifiable_UIImage.swift */; };
+		30FD1735277DEFEF00EA2734 /* MultipleImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1732277DEFEF00EA2734 /* MultipleImagePicker.swift */; };
+		30FD1736277DEFEF00EA2734 /* CustomMultiImagePickerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1733277DEFEF00EA2734 /* CustomMultiImagePickerWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,10 @@
 		309C9CA8277DD3CB00BBAC88 /* CollectionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionEditView.swift; sourceTree = "<group>"; };
 		30FD172A277DE47400EA2734 /* CollectionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListCell.swift; sourceTree = "<group>"; };
 		30FD172C277DE52400EA2734 /* CollectionUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUpdateView.swift; sourceTree = "<group>"; };
+		30FD172E277DE5D300EA2734 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		30FD1731277DEFEF00EA2734 /* Identifiable_UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable_UIImage.swift; sourceTree = "<group>"; };
+		30FD1732277DEFEF00EA2734 /* MultipleImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleImagePicker.swift; sourceTree = "<group>"; };
+		30FD1733277DEFEF00EA2734 /* CustomMultiImagePickerWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMultiImagePickerWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +168,8 @@
 		309C9C88277DBB4000BBAC88 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				309C9C89277DBB4B00BBAC88 /* ImagePicker.swift */,
+				30FD1737277DF00400EA2734 /* ImagePickers */,
+				30FD172E277DE5D300EA2734 /* CustomTextField.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -183,6 +192,25 @@
 				30FD172C277DE52400EA2734 /* CollectionUpdateView.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		30FD1730277DEFEF00EA2734 /* Multi */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1731277DEFEF00EA2734 /* Identifiable_UIImage.swift */,
+				30FD1732277DEFEF00EA2734 /* MultipleImagePicker.swift */,
+				30FD1733277DEFEF00EA2734 /* CustomMultiImagePickerWindow.swift */,
+			);
+			path = Multi;
+			sourceTree = "<group>";
+		};
+		30FD1737277DF00400EA2734 /* ImagePickers */ = {
+			isa = PBXGroup;
+			children = (
+				309C9C89277DBB4B00BBAC88 /* ImagePicker.swift */,
+				30FD1730277DEFEF00EA2734 /* Multi */,
+			);
+			path = ImagePickers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,16 +300,20 @@
 				309C9CA9277DD3CB00BBAC88 /* CollectionEditView.swift in Sources */,
 				305BF49F277DD75A00F8B91E /* CollectionViewModel.swift in Sources */,
 				309C9C62277DAF9600BBAC88 /* ContentView.swift in Sources */,
+				30FD172F277DE5D400EA2734 /* CustomTextField.swift in Sources */,
 				309C9C83277DB6C600BBAC88 /* BookEditView.swift in Sources */,
 				309C9C60277DAF9600BBAC88 /* TrueDatabaseApp.swift in Sources */,
 				309C9C7B277DB4F400BBAC88 /* Book.swift in Sources */,
 				309C9C97277DCCFC00BBAC88 /* Collection.swift in Sources */,
 				309C9C7F277DB5D600BBAC88 /* BooksViewModel.swift in Sources */,
 				30FD172D277DE52400EA2734 /* CollectionUpdateView.swift in Sources */,
+				30FD1735277DEFEF00EA2734 /* MultipleImagePicker.swift in Sources */,
 				309C9CA6277DD38D00BBAC88 /* CollectionListView.swift in Sources */,
+				30FD1734277DEFEF00EA2734 /* Identifiable_UIImage.swift in Sources */,
 				309C9C8A277DBB4B00BBAC88 /* ImagePicker.swift in Sources */,
 				309C9C7D277DB5C200BBAC88 /* BookListView.swift in Sources */,
 				309C9C81277DB63800BBAC88 /* BookViewModel.swift in Sources */,
+				30FD1736277DEFEF00EA2734 /* CustomMultiImagePickerWindow.swift in Sources */,
 				30FD172B277DE47400EA2734 /* CollectionListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
