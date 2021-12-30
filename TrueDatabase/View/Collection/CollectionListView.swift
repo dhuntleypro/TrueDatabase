@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 
 
@@ -20,14 +21,8 @@ struct CollectionListView: View {
     @State private var presentAddNewCollectionSreen = false
     var body: some View {
         List(viewModel.collections) { collection in
-            VStack(alignment: .leading) {
-                Text(collection.title)
-                    .font(.headline)
-                Text(collection.author)
-                    .font(.subheadline)
-                Text("\(collection.numberofPages) pages")
-                    .font(.subheadline)
-                
+            NavigationLink(destination: CollectionUpdateView()){
+                CollectionListCell(collection: collection)
             }
         }
         .navigationTitle(Text("Collections"))
